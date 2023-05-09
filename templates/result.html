@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit risk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <style>
+         body {
+            background-color: antiquewhite;
+        }
+
+        .container {
+            margin-top: 20vh;
+            /* position: fixed;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); */
+        }
+
+        .container h1 {
+            margin-top: 3vh;
+            margin-bottom: 3vh;
+        }
+
+        .card {
+        }
+
+        .type { 
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            border: 1px solid black;
+            padding: 3px;
+            margin-top: 30px;  
+        }
+    </style>
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                <h1>The status of your loan.</h1>
+            </div>
+            <div class="card-body">
+                <div class="type">{{result}}</div>
+                <a href="/" class="btn btn-primary">Form</a>
+            </div>
+          </div>
+        <!-- <h1>Your result is</h1>
+        <div class="typ">{{result}}</div> -->
+      
+    </div>
+</body>
+</html>

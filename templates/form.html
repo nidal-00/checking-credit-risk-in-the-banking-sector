@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Credit risk</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+
+        .container {
+            margin-top: 5vh;
+        }
+
+        .container h1 {
+            margin-bottom: 3vh;
+        }
+        .container form {
+            display:flex;
+            flex-direction: column;
+
+        }
+
+        .container form input, .container form select {
+            width: 60vw;
+        }
+
+        .container form label {
+            margin-bottom: 5px;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .container form input[type='submit'] {
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        
+
+        /* 
+            http://127.0.0.1:8080/get_loan_prediction?employ=A72&age=45&amount=5454&amount=6&checkingstatus=A11&history=A30&purpose=A40&savings=A61&PropertyArea=A121 
+            http://127.0.0.1:8080/get_loan_prediction?employ=A73&age=22&amount=9951&duration=48&checkingstatus=A12&history=A32&purpose=A43&savings=A61&status=A92
+
+            http://127.0.0.1:8080/get_loan_prediction?employ=A72&age=45&amount=5454&amount=6&checkingstatus=A11&history=A30&purpose=A40&savings=A61&PropertyArea=A121
+        */
+    </style>
+    <div class="container">
+        <h1>credit risk in banking sector</h1>
+        <form action="/get_loan_prediction" method="get">
+            <!-- <input type="text" name="in" id="nothing_yet"> -->
+
+           <label for="employ">Present employment since</label> 
+           <select name="employ" id="employe">
+                <option value="A71">unemployed</option>
+                <option value="A72">... < 1 year</option>
+                <option value="A73">1 <= ... < 4 years</option>
+                <option value="A74">4 <= ... < 7 years</option>
+                <option value="A75">.. >= 7 years</option>
+            </select>
+
+            <label for="age">Age in years</label>
+            <input type="number" name="age" id="input_age" min="0" max="100" step="1" aria-label="Age">
+
+            <label for="amount">Credit Amount</label>
+            <input type="number" name="amount" id="input_amount"   step="0.1" aria-label="Amount">
+
+            <label for="duration">Month Duration</label>
+            <input type="number" name="duration" id="input_duration" step="1" min="0" max="12" aria-label="Duration">
+
+            <label for="checkingstatus">Status of existing checking account</label> 
+            <select name="checkingstatus" id="checkingstatus">
+                <option value="A11">... < 0 DM</option>
+                <option value="A12">0 <= ... < 200 DM</option>
+                <option value="A13">... >= 200 DM / salary assignments for at least 1 year</option>
+                <option value="A14">no checking account</option>
+            </select>
+
+            <label for="history">Credit history</label>
+            <select name="history" id="history">
+                <option value="A30">no credits taken/ all credits paid back duly</option>
+                <option value="A31">all credits at this bank paid back duly</option>
+                <option value="A32">existing credits paid back duly till now</option>
+                <option value="A33">delay in paying off in the past</option>
+                <option value="A34">critical account/ other credits existing (not at this bank)</option>
+            </select>
+
+            <label for="purpose">Purpose</label>
+            <select name="purpose" id="purpose">
+                <option value="A40">car (new)</option>
+                <option value="A41">car (used)</option>
+                <option value="A42">furniture/equipment</option>
+                <option value="A43">radio/television</option>
+                <option value="A44">domestic appliances</option>
+                <option value="A45">repairs</option>
+                <option value="A46">education</option>
+                <option value="A47">(vacation - does not exist?)</option>
+                <option value="A48">retraining</option>
+                <option value="A49">business</option>
+                <option value="A410">others</option>
+            </select>
+
+            <label for="savings">Savings account/bonds</label>
+            <select name="savings" id="savings">
+                <option value="A61">... < 100 DM</option>
+                <option value="A62">100 <= ... < 500 DM</option>
+                <option value="A63">500 <= ... < 1000 DM</option>
+                <option value="A64">.. >= 1000 DM</option>
+                <option value="A65">unknown/ no savings account</option>
+            </select>
+
+            <label for="ProperyArea">Property</label>
+            <select name="PropertyArea" id="PropertyArea">        
+                <option value="A121">real estate</option>
+                <option value="A122">if not A121 : building society savings agreement/ life insurance</option>
+                <option value="A123">if not A121/A122 : car or other, not in attribute 6</option>
+                <option value="A124">unknown / no property</option>
+            </select>
+            <input type="submit" class="btn btn-primary" value="Submit">
+
+        </form>
+    </div>
+</body>
+</html>
